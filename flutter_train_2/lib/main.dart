@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: RouteName.categoriesPage,
       onGenerateRoute: Router.generateRoute,
-      home: CategoriesScreen(),
+//      home: CategoriesScreen(),
     );
   }
 }

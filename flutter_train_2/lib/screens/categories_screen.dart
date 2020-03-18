@@ -3,8 +3,14 @@ import 'package:flutter_train_2/mocks/dummy_data.dart';
 import 'package:flutter_train_2/widgets/category_item.dart';
 
 class CategoriesScreen extends StatelessWidget {
+  final String categoryId;
+  final String categoryTitle;
+
+  CategoriesScreen({this.categoryId,this.categoryTitle});
+
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Categories'),
@@ -13,8 +19,9 @@ class CategoriesScreen extends StatelessWidget {
         child:
         GridView(
           padding: EdgeInsets.all(10),
-          children: CATEGORIES
+          children: DUMMY_CATEGORIES
               .map((category) => CategoryItem(
+            id:category.id,
             title: category.title,
             color: category.color,
           ))
