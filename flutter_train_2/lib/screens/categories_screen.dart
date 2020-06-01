@@ -6,33 +6,24 @@ class CategoriesScreen extends StatelessWidget {
   final String categoryId;
   final String categoryTitle;
 
-  CategoriesScreen({this.categoryId,this.categoryTitle});
+  CategoriesScreen({this.categoryId, this.categoryTitle});
 
   @override
   Widget build(BuildContext context) {
-
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Categories'),
-      ),
-      body: Container(
-        child:
-        GridView(
-          padding: EdgeInsets.all(10),
-          children: DUMMY_CATEGORIES
-              .map((category) => CategoryItem(
-            id:category.id,
-            title: category.title,
-            color: category.color,
-          ))
-              .toList(),
-          gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10,
-            maxCrossAxisExtent: 300,
-            childAspectRatio: 1.5,
-          ),
-        ),
+    return GridView(
+      padding: EdgeInsets.all(10),
+      children: DUMMY_CATEGORIES
+          .map((category) => CategoryItem(
+                id: category.id,
+                title: category.title,
+                color: category.color,
+              ))
+          .toList(),
+      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 10,
+        maxCrossAxisExtent: 300,
+        childAspectRatio: 1.5,
       ),
     );
   }

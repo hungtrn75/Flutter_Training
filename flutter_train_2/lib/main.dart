@@ -5,7 +5,24 @@ import 'screens/categories_screen.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  Map <String,bool> _filters = {
+    'gluten':false,
+    'vegetarian':false,
+    'vega':false,
+    'lactose':false,
+  };
+
+  void _setFilters(Map<String,bool> filterData){
+    setState(() {
+      _filters = filterData;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -17,7 +34,7 @@ class MyApp extends StatelessWidget {
         canvasColor: Color.fromRGBO(255, 254, 229, 1),
         textTheme: ThemeData.light().textTheme.copyWith(
           body1: TextStyle(
-            color: Colors.pink,
+            color: Colors.black,
           ),
           title: TextStyle(
             color: Colors.black,
@@ -26,7 +43,7 @@ class MyApp extends StatelessWidget {
           )
         )
       ),
-      initialRoute: RouteName.categoriesPage,
+      initialRoute: RouteName.bottomBar,
       onGenerateRoute: Router.generateRoute,
 //      home: CategoriesScreen(),
     );
